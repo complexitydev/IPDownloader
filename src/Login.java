@@ -22,7 +22,7 @@ public class Login {
 			.method(Method.POST)
 			.cookies(loginRes.cookies())
 			.execute();
-		//posting with cookies
+		//posting with cookies using connection.response
 		return res;
 	}
 }

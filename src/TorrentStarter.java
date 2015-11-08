@@ -46,7 +46,7 @@ public class TorrentStarter {
 		channel.connect();
 		channelSftp = (ChannelSftp) channel;
 		channelSftp.cd(channelSftp.getHome());
-		File f = new File("C:\\IPDownloader\\torrent1.torrent");
+		File f = new File("C:\\IPDownloader\\torrent1.torrent"); //named torrent1.torrent
 		FileInputStream fInput = new FileInputStream(f);
 		channelSftp.put(fInput, f.getName());
 		fInput.close();

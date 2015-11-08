@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class ConfigReader {
 	/*
-	 * checking for config file or making a new one
+	 * checking for config file or making a new one. can follow format to skip this
 	 */
 	public List < String > grabUserInfo() throws IOException {
 		File configDir = new File("C:\\IPDownloader\\");

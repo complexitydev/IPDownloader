@@ -11,6 +11,7 @@ import com.jcraft.jsch.SftpException;
 public class Main {
 
 	public static void main(String[] args) throws IOException, JSchException, InterruptedException, SftpException {
+		//execution
 		ConfigReader config = new ConfigReader();
 		List < String > info = new ArrayList < String > ();
 		info = config.grabUserInfo();

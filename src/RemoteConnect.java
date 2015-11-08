@@ -27,6 +27,6 @@ public class RemoteConnect {
 		session.connect(10 * 8000); //timeout
 		return new Object[] {
 			jsch, session
-		};
+		}; //need to keep
 	}
 }
