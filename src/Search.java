@@ -13,9 +13,9 @@ public class Search {
 	}
 	public Object[] searchMovie() throws IOException {
 		String downloadLink = "";
-		//1080p top seeded movies
+		//1080p sorted by top seeded movies
 		Document doc = Jsoup.connect("https://iptorrents.com/t?1080p;q=" + search + ";o=seeders#torrents") //uses jsoup to keep login
-			.cookies(res.cookies())
+		.cookies(res.cookies())
 			.get();
 		//had to scrape the top DL link. works with dynamic tags. using the icon as a reference
 		for (Element e: doc.select("td.ac").select("a")) {

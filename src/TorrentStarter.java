@@ -2,16 +2,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.Connection.Response;
 
 import com.jcraft.jsch.Channel;
-import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
@@ -34,7 +30,7 @@ public class TorrentStarter {
 		this.homeDirectory = watchDir;
 	}
 	public void downloadTorrent() throws JSchException, InterruptedException, IOException, SftpException {
-		//iptorrents requires passkey via cookies
+		//iptorrents requires passkey via cookies for each dl
 		res = Jsoup.connect(torrent)
 			.cookies(res.cookies())
 			.ignoreContentType(true)

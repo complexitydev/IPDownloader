@@ -11,7 +11,7 @@ import com.jcraft.jsch.SftpException;
 public class Main {
 
 	public static void main(String[] args) throws IOException, JSchException, InterruptedException, SftpException {
-		//execution
+		//execution of program
 		ConfigReader config = new ConfigReader();
 		List < String > info = new ArrayList < String > ();
 		info = config.grabUserInfo();
@@ -26,11 +26,11 @@ public class Main {
 		File1.close();
 		RemoteConnect connect = new RemoteConnect(info.get(2), info.get(3), info.get(4));
 		for (int i = 0; i <= temps.size() - 1; i++) {
-		String movie = temps.get(i);
-		Search search = new Search(login.grabLogin(), movie);
-		TorrentStarter tor = new TorrentStarter(connect.getAuth(), search.searchMovie(), info.get(5));
-		tor.downloadTorrent();
+			String movie = temps.get(i);
+			Search search = new Search(login.grabLogin(), movie);
+			TorrentStarter tor = new TorrentStarter(connect.getAuth(), search.searchMovie(), info.get(5));
+			tor.downloadTorrent();
 		}
-		
+
 	}
 }
