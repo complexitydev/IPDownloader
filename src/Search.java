@@ -13,9 +13,11 @@ public class Search {
 	}
 	public Object[] searchMovie() throws IOException {
 		String downloadLink = "";
+		//1080p top seeded movies
 		Document doc = Jsoup.connect("https://iptorrents.com/t?1080p;q=" + search + ";o=seeders#torrents")
 			.cookies(res.cookies())
 			.get();
+		//had to scrape the top DL link. works with dynamic tags. using the icon as a reference
 		for (Element e: doc.select("td.ac").select("a")) {
 			if (e.select("i[class=fa fa-download fa-2x]").size() > 0) {
 				downloadLink = "https://iptorrents.com" + e.attr("href");

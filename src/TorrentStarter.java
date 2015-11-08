@@ -51,6 +51,7 @@ public class TorrentStarter {
 		channelSftp.put(fInput, f.getName());
 		fInput.close();
 		channelSftp.rename((channelSftp.getHome() + "/torrent1.torrent"), (channelSftp.getHome() + homeDirectory + "torrent1.torrent"));
+		//.rename allows to delete from first directory and then move to new directory. works well
 		System.out.println("We uploaded the file");
 		f.delete();
 	}

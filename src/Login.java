@@ -12,7 +12,7 @@ public class Login {
 	}
 	public Connection.Response grabLogin() throws IOException {
 		Response loginRes = Jsoup.connect("https://iptorrents.com/")
-			.userAgent("Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0")
+			.userAgent("Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0") //robots.txt
 			.method(Method.GET)
 			.execute();
 		Connection.Response res = Jsoup.connect("https://iptorrents.com/")
@@ -22,6 +22,7 @@ public class Login {
 			.method(Method.POST)
 			.cookies(loginRes.cookies())
 			.execute();
+		//posting with cookies
 		return res;
 	}
 }
