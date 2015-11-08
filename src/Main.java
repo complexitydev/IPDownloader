@@ -28,9 +28,12 @@ public class Main {
 		for (int i = 0; i <= temps.size() - 1; i++) {
 			String movie = temps.get(i);
 			Search search = new Search(login.grabLogin(), movie);
-			TorrentStarter tor = new TorrentStarter(connect.getAuth(), search.searchMovie(), info.get(5));
+			TorrentStarter tor = new TorrentStarter(connect.getAuth(), search.searchMovie(), info.get(5), i);
 			tor.downloadTorrent();
+			if (i % 5 == 0) {
+				System.out.println("Waitig 5 seconds");
+				Thread.sleep(5000);
+			}
 		}
-
 	}
 }

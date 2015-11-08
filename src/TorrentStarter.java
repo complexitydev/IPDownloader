@@ -20,14 +20,16 @@ public class TorrentStarter {
 	private String torrent = "";
 	private Session session = null;
 	private JSch jsch = null;
+	private int count = 0;
 	private Connection.Response res = null;
 	private ChannelSftp channelSftp = null;
-	public TorrentStarter(Object[] objectArray, Object[] objectArray2, String watchDir) {
+	public TorrentStarter(Object[] objectArray, Object[] objectArray2, String watchDir, int count) {
 		this.torrent = (String) objectArray2[0];
 		this.jsch = (JSch) objectArray[0];
 		this.session = (Session) objectArray[1];
 		this.res = (Response) objectArray2[1];
 		this.homeDirectory = watchDir;
+		this.count = count;
 	}
 	public void downloadTorrent() throws JSchException, InterruptedException, IOException, SftpException {
 		//iptorrents requires passkey via cookies for each dl
@@ -46,9 +48,8 @@ public class TorrentStarter {
 		FileInputStream fInput = new FileInputStream(f);
 		channelSftp.put(fInput, f.getName());
 		fInput.close();
-		channelSftp.rename((channelSftp.getHome() + "/torrent1.torrent"), (channelSftp.getHome() + homeDirectory + "torrent1.torrent"));
+		channelSftp.rename((channelSftp.getHome() + "/torrent1.torrent"), (channelSftp.getHome() + homeDirectory + "torrent" + count +".torrent"));
 		//.rename allows to delete from first directory and then move to new directory. works well
-		System.out.println("We uploaded the file");
 		f.delete();
 	}
 }
