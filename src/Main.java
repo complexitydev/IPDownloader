@@ -30,10 +30,11 @@ public class Main {
 			Search search = new Search(login.grabLogin(), movie);
 			TorrentStarter tor = new TorrentStarter(connect.getAuth(), search.searchMovie(), info.get(5), i);
 			tor.downloadTorrent();
-			if (i % 5 == 0) {
+			if (i % 5 == 0 && i != 1) {
 				System.out.println("Waiting 5 seconds");
 				Thread.sleep(5000);
 			}
 		}
+		System.exit(0);
 	}
 }
