@@ -31,7 +31,7 @@ public class Main {
 			TorrentStarter tor = new TorrentStarter(connect.getAuth(), search.searchMovie(), info.get(5), i);
 			tor.downloadTorrent();
 			if (i % 5 == 0) {
-				System.out.println("Waitig 5 seconds");
+				System.out.println("Waiting 5 seconds");
 				Thread.sleep(5000);
 			}
 		}
